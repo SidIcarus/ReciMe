@@ -19,12 +19,13 @@ public class MainActivity extends FragmentActivity {
         mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
 
-        mTabHost.addTab(mTabHost.newTabSpec("tab1").setIndicator("Recipes"),
+        mTabHost.addTab(mTabHost.newTabSpec("recipes").setIndicator("Recipes"),
                 RecipeListFragment.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("tab2").setIndicator("Shopping List"),
+        mTabHost.addTab(mTabHost.newTabSpec("shoppinglist").setIndicator("Shopping List"),
                 ShoppingListFragment.class, null);
-        mTabHost.addTab(mTabHost.newTabSpec("tab3").setIndicator("Meal Plan"),
+        mTabHost.addTab(mTabHost.newTabSpec("mealplan").setIndicator("Meal Plan"),
                 MealPlanFragment.class, null);
+
     }
 
     @Override
