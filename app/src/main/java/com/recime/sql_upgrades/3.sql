@@ -1,0 +1,1 @@
+alter table RecipeStep add stepTime FLOAT;

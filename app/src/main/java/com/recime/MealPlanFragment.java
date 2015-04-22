@@ -32,7 +32,7 @@ public class MealPlanFragment extends Fragment {
             Recipe recipe = new Recipe(rec);
             recipe.save();
             for (Integer i = 0; i < numbers.size(); i++) {
-                RecipeStep recstep = new RecipeStep(recipe, i + 1, numbers.get(i));
+                RecipeStep recstep = new RecipeStep(recipe, i + 1, numbers.get(i), i/(float)2.0);
                 recstep.save();
             }
             List<RecipeStep> recsteps = recipe.getRecipeSteps();
@@ -40,7 +40,7 @@ public class MealPlanFragment extends Fragment {
                 System.out.println("-------------------");
                 System.out.println(rec1.recipe.name);
                 System.out.println(rec1.stepNum);
-                System.out.println(rec1.action);
+                System.out.println(rec1.stepTime);
                 System.out.println("-------------------");
             }
         }
