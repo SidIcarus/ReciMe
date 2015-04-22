@@ -1,8 +1,10 @@
 package com.recime;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -46,16 +47,21 @@ public class RecipeListFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
 
-                // ListView Clicked item index
-                int itemPosition = position;
-
                 // ListView Clicked item value
-                Recipe itemValue = (Recipe) listView.getItemAtPosition(position);
+                Recipe recipe = (Recipe) listView.getItemAtPosition(position);
 
-                // Show Alert
-                Toast.makeText(getActivity(),
-                        "Position :" + itemPosition + "  ListItem : " + itemValue.name, Toast.LENGTH_LONG)
-                        .show();
+                Bundle mBundle = new Bundle();
+                mBundle.putString("recipeId", recipe.getId().toString());
+
+//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+//                RecipeActivity recipeFragment = new RecipeActivity();
+//                recipeFragment.setArguments(mBundle);
+//                fragmentTransaction.replace(R.id.realtabcontent, recipeFragment);
+//                fragmentTransaction.commit();
+
+                Intent intent = new Intent(getActivity(), RecipeActivity.class);
+                intent.putExtra("recipeId", recipe.getId().toString());
+                startActivity(intent);
             }
         });
         return V;
