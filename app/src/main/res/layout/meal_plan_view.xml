@@ -5,7 +5,7 @@
     android:background="#26ce61">
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/shoppingTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
