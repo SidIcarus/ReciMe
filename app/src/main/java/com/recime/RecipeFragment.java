@@ -66,7 +66,6 @@ public class RecipeFragment extends Fragment {
             }
 
             RecipeStep recipeStep = getItem(position);
-            System.out.println(recipeStep);
 
             if (recipeStep != null) {
                 TextView tt = (TextView) v.findViewById(R.id.stepRow);
