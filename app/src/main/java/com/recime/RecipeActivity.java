@@ -3,7 +3,7 @@ package com.recime;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.widget.TextView;
+import com.recime.Recipe;
 
 public class RecipeActivity extends FragmentActivity {
     private Recipe recipeObject;
@@ -26,6 +26,8 @@ public class RecipeActivity extends FragmentActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, recipeFragment).commit();
         }
+
+
 
     }
 }

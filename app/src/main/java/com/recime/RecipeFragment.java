@@ -11,7 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.recime.Recipe;
+import com.recime.RecipeStep;
 
 import java.util.List;
 
@@ -39,8 +40,6 @@ public class RecipeFragment extends Fragment {
         listView = (ListView) V.findViewById(R.id.stepsList);
 
         listView.setAdapter(new RecipeListAdapter(context, R.layout.list_view_row, recipeSteps));
-
-
 
         return V;
     }

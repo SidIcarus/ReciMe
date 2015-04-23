@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import com.recime.Recipe;
+
 public class RecipeListFragment extends Fragment {
     ListView listView ;
 
