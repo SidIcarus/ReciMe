@@ -11,6 +11,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.recime.models.Recipe;
+import com.recime.models.RecipeStep;
+import com.recime.models.Ingredient;
+
 public class MainActivity extends FragmentActivity {
     // Fragment TabHost as mTabHost
     private FragmentTabHost mTabHost;
@@ -79,7 +83,7 @@ public class MainActivity extends FragmentActivity {
             recipe.save();
 
             System.out.println("-------------------");
-            System.out.println(recipe.name);
+            System.out.println(recipe.getName());
 
             for (Integer i = 0; i < recipeSteps.size(); i++)
             {
@@ -96,8 +100,8 @@ public class MainActivity extends FragmentActivity {
             for (RecipeStep rec1 : recsteps) {
 
 
-                System.out.println(rec1.stepNum);
-                System.out.println(rec1.stepTime);
+                System.out.println(rec1.getStepNum());
+                System.out.println(rec1.getStepTime());
                 System.out.println("------------");
             }
         }
