@@ -53,12 +53,6 @@ public class RecipeListFragment extends Fragment {
                 Bundle mBundle = new Bundle();
                 mBundle.putString("recipeId", recipe.getId().toString());
 
-//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-//                RecipeActivity recipeFragment = new RecipeActivity();
-//                recipeFragment.setArguments(mBundle);
-//                fragmentTransaction.replace(R.id.realtabcontent, recipeFragment);
-//                fragmentTransaction.commit();
-
                 Intent intent = new Intent(getActivity(), RecipeActivity.class);
                 intent.putExtra("recipeId", recipe.getId().toString());
                 startActivity(intent);
