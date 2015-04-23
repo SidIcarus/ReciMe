@@ -8,12 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.recime.Recipe;
+import com.recime.RecipeStep;
+
 
 public class MealPlanFragment extends Fragment {
-    private TextView displayTextView;
     private List<String> numbers = Arrays.asList("one", "two", "three", "four", "five");
     private List<String> recipes = Arrays.asList("Soup", "Bread", "Fish & Chips", "Burgers", "Eggs");
 
@@ -43,13 +46,19 @@ public class MealPlanFragment extends Fragment {
                 System.out.println(rec1.stepTime);
                 System.out.println("-------------------");
             }
+
+            MealPlanSingleton.getInstance().addRecipeToMealPlan(recipe);
         }
+
+
 
 
 
 
         return V;
     }
+
+
 
 
 }
