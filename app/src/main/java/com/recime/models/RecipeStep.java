@@ -1,4 +1,4 @@
-package com.recime;
+package com.recime.models;
 
 import com.orm.SugarRecord;
 
@@ -17,4 +17,12 @@ public class RecipeStep extends SugarRecord<RecipeStep> {
         this.action = action;
         this.stepTime = stepTime;
     }
+
+    public Recipe getRecipe() { return recipe; }
+
+    public Integer getStepNum() { return stepNum; }
+
+    public String getAction() { return action; }
+
+    public Float getStepTime() { return stepTime; }
 }

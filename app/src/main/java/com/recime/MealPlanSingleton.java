@@ -1,7 +1,7 @@
 package com.recime;
 
 import java.util.ArrayList;
-import com.recime.Recipe;
+import com.recime.models.Recipe;
 
 public class MealPlanSingleton {
 

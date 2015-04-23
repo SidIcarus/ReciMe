@@ -11,8 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.recime.Recipe;
-import com.recime.RecipeStep;
+import com.recime.models.Recipe;
+import com.recime.models.RecipeStep;
 
 import java.util.List;
 
@@ -32,7 +32,7 @@ public class RecipeFragment extends Fragment {
         recipeObject = Recipe.findById(Recipe.class, Long.parseLong(recipeId));
 
         TextView titleTextView = (TextView)V.findViewById(R.id.recipeName);
-        titleTextView.setText(recipeObject.name);
+        titleTextView.setText(recipeObject.getName());
 
         List<RecipeStep> recipeSteps = recipeObject.getRecipeSteps();
 
@@ -68,10 +68,10 @@ public class RecipeFragment extends Fragment {
 
             if (recipeStep != null) {
                 TextView tt = (TextView) v.findViewById(R.id.stepRow);
-                tt.setText(recipeStep.action);
+                tt.setText(recipeStep.getAction());
 
                 TextView numOrder = (TextView) v.findViewById((R.id.numOrder));
-                numOrder.setText(recipeStep.stepNum.toString());
+                numOrder.setText(recipeStep.getStepNum().toString());
             }
 
             return v;

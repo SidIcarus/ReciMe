@@ -12,8 +12,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.recime.Recipe;
-import com.recime.RecipeStep;
+import com.recime.models.Ingredient;
+import com.recime.models.Recipe;
+import com.recime.models.RecipeStep;
 
 
 public class MealPlanFragment extends Fragment {
@@ -36,21 +37,20 @@ public class MealPlanFragment extends Fragment {
             recipe.save();
             for (Integer i = 0; i < numbers.size(); i++) {
                 RecipeStep recstep = new RecipeStep(recipe, i + 1, numbers.get(i), i/(float)2.0);
+                Ingredient ingredient = new Ingredient(i.toString() + " " + recipe.getName());
+                ingredient.save();
                 recstep.save();
+                recipe.addIngredient(ingredient);
             }
-            List<RecipeStep> recsteps = recipe.getRecipeSteps();
-            for (RecipeStep rec1 : recsteps) {
-                System.out.println("-------------------");
-                System.out.println(rec1.recipe.name);
-                System.out.println(rec1.stepNum);
-                System.out.println(rec1.stepTime);
-                System.out.println("-------------------");
+            List<Ingredient> ingredients = recipe.getIngredients();
+            System.out.println("-------------------");
+            for (Ingredient rec1 : ingredients) {
+                System.out.println(rec1.getName());
             }
+            System.out.println("-------------------");
 
             MealPlanSingleton.getInstance().addRecipeToMealPlan(recipe);
         }
-
-
 
 
 
