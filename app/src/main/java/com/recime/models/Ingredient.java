@@ -1,4 +1,4 @@
-package com.recime;
+package com.recime.models;
 
 import com.orm.SugarRecord;
 
@@ -13,4 +13,9 @@ public class Ingredient extends SugarRecord<Ingredient> {
         this.name = name;
     }
 
+    public String getName() { return name; }
+    
+    public String getAisle(){ return aisle; }
+
+    public Integer getNumInStock() { return numInStock; }
 }

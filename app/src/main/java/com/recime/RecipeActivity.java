@@ -3,7 +3,7 @@ package com.recime;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import com.recime.Recipe;
+import com.recime.models.Recipe;
 
 public class RecipeActivity extends FragmentActivity {
     private Recipe recipeObject;
