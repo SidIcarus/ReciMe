@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import com.recime.Recipe;
+import com.recime.models.Recipe;
 
 public class RecipeListFragment extends Fragment {
     ListView listView ;
@@ -87,7 +87,7 @@ public class RecipeListFragment extends Fragment {
 
             if (recipe != null) {
                 TextView tt = (TextView) v.findViewById(R.id.textView);
-                tt.setText(recipe.name);
+                tt.setText(recipe.getName());
             }
 
             return v;

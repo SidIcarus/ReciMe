@@ -19,6 +19,7 @@ public class MealPlanFragment extends Fragment {
 
         TextView displayTextView = (TextView)V.findViewById(R.id.shoppingTitle);
         displayTextView.setText("OMG IT WORKED");
+
         return V;
     }
 }
