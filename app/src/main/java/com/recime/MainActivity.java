@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -104,6 +105,12 @@ public class MainActivity extends FragmentActivity {
                 System.out.println(rec1.getStepTime());
                 System.out.println("------------");
             }
+        }
+
+        for (String ingredient : Arrays.asList("ingred1", "ingred2", "ingred3", "ingred4")) {
+            Ingredient ingredient1 = new Ingredient(ingredient);
+            ingredient1.save();
+            ShoppingListSingleton.getInstance().addIngredientToShoppingList(ingredient1);
         }
     }
 

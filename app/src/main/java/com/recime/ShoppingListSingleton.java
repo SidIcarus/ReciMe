@@ -1,6 +1,8 @@
 package com.recime;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import com.recime.models.Ingredient;
 
 public class ShoppingListSingleton {
@@ -18,15 +20,21 @@ public class ShoppingListSingleton {
         return instance;
     }
 
-    public ArrayList<Ingredient> getMealPlanRecipes() {
+    public ArrayList<Ingredient> getShoppingList() {
         return shoppingList;
     }
 
-    public void addRecipeToMealPlan(Ingredient ingredient) {
+    public void addIngredientToShoppingList(Ingredient ingredient) {
         shoppingList.add(ingredient);
     }
 
-    public void removeRecipeFromMealPlan(Ingredient ingredient) {
+    public void addIngredientToShoppingList(List<Ingredient> ingredientList) {
+        for (Ingredient ingredient : ingredientList) {
+            getInstance().addIngredientToShoppingList(ingredient);
+        }
+    }
+
+    public void removeIngredientFromShoppingList(Ingredient ingredient) {
         shoppingList.remove(shoppingList.indexOf(ingredient));
     }
 
