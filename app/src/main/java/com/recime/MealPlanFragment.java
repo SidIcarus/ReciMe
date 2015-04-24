@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -48,6 +49,18 @@ public class MealPlanFragment extends Fragment implements TextToSpeech.OnInitLis
             public void onClick(View v) {
                 textToSpeech = new TextToSpeech(getActivity(), onInit);
 
+            }
+        });
+
+        Button removeAllMeals = (Button)V.findViewById(R.id.removeMealPlan);
+
+        removeAllMeals.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                // ListView Clicked item value
+                MealPlanSingleton.getInstance().removeAll();
+                listView.invalidateViews();
             }
         });
 

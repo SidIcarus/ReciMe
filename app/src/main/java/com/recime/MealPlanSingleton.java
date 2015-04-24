@@ -30,4 +30,8 @@ public class MealPlanSingleton {
         mealPlanRecipes.remove(mealPlanRecipes.indexOf(recipe));
     }
 
+    public void removeAll() {
+        mealPlanRecipes.clear();
+    }
+
 }
