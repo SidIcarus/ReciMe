@@ -13,6 +13,13 @@ public class Ingredient extends SugarRecord<Ingredient> {
         this.name = name;
     }
 
+    public Ingredient(String name, String aisle, Integer numInStock)
+    {
+        this.name = name;
+        this.aisle = aisle;
+        this.numInStock = numInStock;
+    }
+
     public String getName() { return name; }
     
     public String getAisle(){ return aisle; }
