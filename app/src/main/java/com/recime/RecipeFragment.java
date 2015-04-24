@@ -29,6 +29,7 @@ public class RecipeFragment extends Fragment {
 
         Bundle extras = getArguments();
         String recipeId = extras.getString("recipeId");
+
         recipeObject = Recipe.findById(Recipe.class, Long.parseLong(recipeId));
 
         TextView titleTextView = (TextView)V.findViewById(R.id.recipeName);
@@ -53,6 +54,8 @@ public class RecipeFragment extends Fragment {
         public RecipeListAdapter(Context context, int resource, List<RecipeStep> items) {
             super(context, resource, items);
         }
+
+
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {

@@ -27,3 +27,6 @@ proguard/
 *.log
 
 .idea/
+
+app/app.iml
+ReciMe.iml

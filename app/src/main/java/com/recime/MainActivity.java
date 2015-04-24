@@ -1,10 +1,18 @@
 package com.recime;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,6 +29,7 @@ public class MainActivity extends FragmentActivity {
     // Fragment TabHost as mTabHost
     private FragmentTabHost mTabHost;
 
+    EditText textSearchField;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -38,6 +47,7 @@ public class MainActivity extends FragmentActivity {
                 ShoppingListFragment.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("mealplan").setIndicator("Meal Plan"),
                 MealPlanFragment.class, null);
+
 
     }
 

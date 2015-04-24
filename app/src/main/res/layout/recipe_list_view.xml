@@ -3,12 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <FrameLayout
+        android:id="@+id/containersearch"
+        android:layout_width="match_parent"
+        android:layout_height="120px"
+        android:layout_weight="10">
+        <EditText
+            android:id="@+id/searchField2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:icon="@android:drawable/ic_menu_search"/>
+
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/containerlistshit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="120px"
+        android:layout_weight="100">
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     </ListView>
+
+    </FrameLayout>
 </RelativeLayout>
 <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
     <!--android:layout_weight="1"-->
