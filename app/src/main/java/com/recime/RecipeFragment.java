@@ -39,7 +39,7 @@ public class RecipeFragment extends Fragment {
         // Get ListView object from xml
         listView = (ListView) V.findViewById(R.id.stepsList);
 
-        listView.setAdapter(new RecipeListAdapter(context, R.layout.list_view_row, recipeSteps));
+        listView.setAdapter(new RecipeListAdapter(context, R.layout.recipe_step_row, recipeSteps));
 
         return V;
     }

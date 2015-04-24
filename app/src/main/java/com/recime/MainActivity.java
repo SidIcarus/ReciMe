@@ -112,6 +112,10 @@ public class MainActivity extends FragmentActivity {
             ingredient1.save();
             ShoppingListSingleton.getInstance().addIngredientToShoppingList(ingredient1);
         }
+
+        List<Recipe> recs = Recipe.listAll(Recipe.class);
+
+        MealPlanSingleton.getInstance().addRecipeToMealPlan(recs.get(0));
     }
 
     private HashMap<String, List<Tuple<String, Integer>>> _recipes = null;
