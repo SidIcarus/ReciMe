@@ -1,10 +1,13 @@
 package com.recime;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.TabHost;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,6 +41,18 @@ public class MainActivity extends FragmentActivity {
                 ShoppingListFragment.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("mealplan").setIndicator("Meal Plan"),
                 MealPlanFragment.class, null);
+
+        try {
+            mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+
+                public void onTabChanged(String tabId) {
+                    try {
+                        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(mTabHost.getApplicationWindowToken(), 0);
+                    } catch (Exception e2) { }
+                }
+            });
+        } catch (Exception e) { }
 
     }
 
