@@ -6,11 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.ViewFlipper;
 
 import com.recime.models.Ingredient;
 import com.recime.models.Recipe;
@@ -36,7 +35,18 @@ public class ShoppingListFragment extends Fragment {
         listView = (ListView) V.findViewById(R.id.shoppingListView);
         listView.setAdapter(new ShoppingListAdapter(context, R.layout.list_view_row, ingredientList));
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                // ListView Clicked item value
+                Ingredient ingredient = (Ingredient) listView.getItemAtPosition(position);
+                ShoppingListSingleton.getInstance().removeIngredientFromShoppingList(ingredient);
+                listView.invalidateViews();
+            }
+        });
 
         return V;
     }
