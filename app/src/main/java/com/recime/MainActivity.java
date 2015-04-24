@@ -124,8 +124,6 @@ public class MainActivity extends FragmentActivity {
             }
         }
 
-        List<Recipe> recs = Recipe.listAll(Recipe.class);
-        MealPlanSingleton.getInstance().addRecipeToMealPlan(recs.get(0));
     }
 
     private HashMap<String, Tuple<List<Ingredient>, List<Tuple<String, Integer>>>> _recipes = null;
@@ -137,36 +135,28 @@ public class MainActivity extends FragmentActivity {
 
             Ingredient butter = new Ingredient("Butter", "Refrigerated Aisle", 0);
             butter.save();
-            ShoppingListSingleton.getInstance().addIngredientToShoppingList(butter);
             Ingredient eggs = new Ingredient("Eggs", "Refrigerated Aisle", randInt(0, 70));
             eggs.save();
-            ShoppingListSingleton.getInstance().addIngredientToShoppingList(eggs);
             Ingredient bacon = new Ingredient("Bacon", "Refrigerated Aisle", randInt(0, 70));
             bacon.save();
             Ingredient milk = new Ingredient("Milk", "Refrigerated Aisle", randInt(0, 70));
             milk.save();
-            ShoppingListSingleton.getInstance().addIngredientToShoppingList(milk);
             Ingredient cheese = new Ingredient("Cheese", "Refrigerated Aisle", randInt(0, 70));
             cheese.save();
             Ingredient hotchocolate = new Ingredient("Hot Chocolate", "Aisle 5", randInt(0, 70));
             hotchocolate.save();
-            ShoppingListSingleton.getInstance().addIngredientToShoppingList(hotchocolate);
             Ingredient icecream = new Ingredient("Ice Cream Mix", "Aisle 15", randInt(0, 70));
             icecream.save();
             Ingredient wine = new Ingredient("Wine", "Aisle 10", randInt(0, 70));
             wine.save();
-            ShoppingListSingleton.getInstance().addIngredientToShoppingList(wine);
             Ingredient cupcakemix = new Ingredient("Cupcake Mix", "Aisle 3", randInt(0, 70));
             cupcakemix.save();
             Ingredient greenteabag = new Ingredient("Green Tea Bags", "Aisle 5", randInt(0, 70));
             greenteabag.save();
-            ShoppingListSingleton.getInstance().addIngredientToShoppingList(greenteabag);
             Ingredient blackteabag = new Ingredient("Black Tea Bags", "Aisle 5", randInt(0, 70));
             blackteabag.save();
-            ShoppingListSingleton.getInstance().addIngredientToShoppingList(blackteabag);
             Ingredient pam = new Ingredient("Pam", "Aisle 3", randInt(0, 70));
             pam.save();
-            ShoppingListSingleton.getInstance().addIngredientToShoppingList(pam);
             Ingredient potatoes = new Ingredient("Potatoes", "Aisle 1", randInt(0, 70));
             potatoes.save();
             Ingredient hotdogs = new Ingredient("Hot Dogs", "Aisle 8", randInt(0, 70));
@@ -175,7 +165,6 @@ public class MainActivity extends FragmentActivity {
             salt.save();
             Ingredient pepper = new Ingredient("Pepper", "Aisle 2", randInt(0, 70));
             pepper.save();
-            ShoppingListSingleton.getInstance().addIngredientToShoppingList(pepper);
             Ingredient parsley = new Ingredient("Parsley", "Aisle 2", randInt(0, 70));
             parsley.save();
             Ingredient sage = new Ingredient("Sage", "Aisle 2", randInt(0, 70));

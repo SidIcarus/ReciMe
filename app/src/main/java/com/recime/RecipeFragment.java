@@ -8,9 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.recime.models.Ingredient;
 import com.recime.models.Recipe;
 import com.recime.models.RecipeStep;
 
@@ -18,7 +21,8 @@ import java.util.List;
 
 public class RecipeFragment extends Fragment {
     private Recipe recipeObject;
-    ListView listView ;
+    ListView recipeListView;
+    ListView ingredientListView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,11 +40,32 @@ public class RecipeFragment extends Fragment {
         titleTextView.setText(recipeObject.getName());
 
         List<RecipeStep> recipeSteps = recipeObject.getRecipeSteps();
+        List<Ingredient> ingredientList = recipeObject.getIngredients();
 
         // Get ListView object from xml
-        listView = (ListView) V.findViewById(R.id.stepsList);
+        recipeListView = (ListView) V.findViewById(R.id.stepsList);
+        ingredientListView = (ListView) V.findViewById(R.id.ingredientsList);
 
-        listView.setAdapter(new RecipeListAdapter(context, R.layout.recipe_step_row, recipeSteps));
+        recipeListView.setAdapter(new RecipeListAdapter(context, R.layout.recipe_step_row, recipeSteps));
+        ingredientListView.setAdapter(new IngredientListAdapter(context, R.layout.ingredient_row, ingredientList));
+
+        Button addToMealPlan = (Button)V.findViewById(R.id.addToMealPlan);
+        addToMealPlan.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                MealPlanSingleton.getInstance().addRecipeToMealPlan(recipeObject);
+                Toast.makeText(getActivity(), String.format("Added %s to meal plan", recipeObject.getName()),
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
+        Button addToShoppingList = (Button)V.findViewById(R.id.addToShoppingList);
+        addToShoppingList.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                ShoppingListSingleton.getInstance().addIngredientToShoppingList(recipeObject.getIngredients());
+                Toast.makeText(getActivity(), String.format("Added %s's ingredients to shopping list", recipeObject.getName()),
+                        Toast.LENGTH_LONG).show();
+            }
+        });
 
         return V;
     }
@@ -75,6 +100,38 @@ public class RecipeFragment extends Fragment {
 
                 TextView numOrder = (TextView) v.findViewById((R.id.numOrder));
                 numOrder.setText(recipeStep.getStepNum().toString());
+            }
+
+            return v;
+
+        }
+    }
+
+    public class IngredientListAdapter extends ArrayAdapter<Ingredient> {
+
+        public IngredientListAdapter(Context context, int textViewResourceId) {
+            super(context, textViewResourceId);
+        }
+
+        public IngredientListAdapter(Context context, int resource, List<Ingredient> items) {
+            super(context, resource, items);
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View v = convertView;
+
+            if (v == null) {
+                LayoutInflater vi;
+                vi = LayoutInflater.from(getContext());
+                v = vi.inflate(R.layout.ingredient_row, null);
+            }
+
+            Ingredient ingredient = getItem(position);
+
+            if (ingredient != null) {
+                TextView tt = (TextView) v.findViewById(R.id.ingredientName);
+                tt.setText(ingredient.getName());
             }
 
             return v;
