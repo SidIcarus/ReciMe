@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#26ce61">
+    android:orientation="vertical"
+    android:weightSum="100" >
 
-    <TextView
-        android:id="@+id/shoppingTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Meal Plan"
-        android:textColor="#000000"
-        android:textSize="20px" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:weightSum="100"
+        android:layout_weight="15" >
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="59dp" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:text="Start Meal Plan"
+            android:id="@+id/startMealPlan" />
 
-</RelativeLayout>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:text="Remove All"
+            android:id="@+id/removeMealPlan"/>
+
+    </LinearLayout>
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="85"
+        android:id="@+id/mealPlanList" />
+
+</LinearLayout>
